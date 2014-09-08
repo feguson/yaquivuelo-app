@@ -45,5 +45,18 @@ var app = {
         receivedElement.setAttribute('style', 'display:block;');
 
         console.log('Received Event: ' + id);
+
+//try to fix the problem of double clic
+ last_click_time = new Date().getTime()
+document.addEventListener 'click', (e)->
+  click_time = e['timeStamp']
+  if (click_time && (click_time - last_click_time) < 1000)
+    e.stopImmediatePropagation()
+    e.preventDefault()
+    return false
+  last_click_time = click_time
+, true;
+
+//finish try to fix...
     }
 };
