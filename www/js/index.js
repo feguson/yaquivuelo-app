@@ -51,12 +51,3 @@ var app = {
 };
 
 
-window.onload = function() {
- $("#area").on("tap",function(){
-    setTimeout(function(){
-                        CreateEvents();
-
-                        }, 300);
-
-    }
-};

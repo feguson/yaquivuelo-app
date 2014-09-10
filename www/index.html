@@ -208,11 +208,20 @@
                 grad.addColorStop(1, 'black');
                 FB.gradients.night = grad;
 
+
+
+
                 // listen for clicks
                 window.addEventListener('click', function (e) {
                     e.preventDefault();
                     FB.Input.set(e);
                 }, false);
+
+
+
+var delay=1000;//1 seconds
+setTimeout(function(){ 
+
 
                 // listen for touches
                 window.addEventListener('touchstart', function (e) {
@@ -222,6 +231,8 @@
                     // the first touch
                     FB.Input.set(e.touches[0]);
                 }, false);
+
+ },delay); 
                 window.addEventListener('touchmove', function (e) {
                     // we're not interested in this
                     // but prevent default behaviour
@@ -229,10 +240,14 @@
                     // or zoom
                     e.preventDefault();
                 }, false);
+
+
+
                 window.addEventListener('touchend', function (e) {
                     // as above
                     e.preventDefault();
                 }, false);
+
 
                 // we're ready to resize
                 FB.resize();
@@ -523,6 +538,8 @@
             this.centerY = this.randomIntFromInterval(70, 220);
         }
 
+
+
         FB.Bird = function () {
 
             this.img = new Image();
@@ -629,6 +646,8 @@
 
         };
 
+
+
          // checks if two entities are touching
         FB.Collides = function (bird, pipe) {
         
@@ -670,7 +689,9 @@
 
             return (c1 || c2)
 
-        };
+        };  
+
+
         
         window.Splash = function(){
             
@@ -844,7 +865,9 @@
                 
             }
             
-            this.update = function(){               
+            this.update = function(){  
+  
+
                 if (FB.Input.tapped) {
                     var x = FB.Input.x;
                     var y = FB.Input.y;
@@ -855,6 +878,8 @@
                     FB.Input.tapped = false;
                 }
                 FB.bird.update();
+
+
             }
             
             this.render = function(){
