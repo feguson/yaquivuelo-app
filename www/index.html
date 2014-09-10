@@ -219,8 +219,7 @@
 
 
 
-var delay=1000;//1 seconds
-setTimeout(function(){ 
+
 
 
                 // listen for touches
@@ -232,7 +231,7 @@ setTimeout(function(){
                     FB.Input.set(e.touches[0]);
                 }, false);
 
- },delay); 
+
                 window.addEventListener('touchmove', function (e) {
                     // we're not interested in this
                     // but prevent default behaviour
@@ -376,6 +375,8 @@ setTimeout(function(){
             }
 
         };
+
+
 
         FB.Input = {
 
@@ -554,7 +555,7 @@ setTimeout(function(){
             this.vx = 70;
             this.velocity = 0;
             this.play = false;
-            this.jump = -4.6;
+            this.jump = -2.6;
             this.rotation = 0;
             this.type = 'bird';
             this.update = function () {
@@ -574,7 +575,7 @@ setTimeout(function(){
                     if (this.vy >= 370) {
                         this.vy = 370;
                     }
-                    this.rotation = Math.min((this.velocity / 10) * 90, 90);
+                    this.rotation = Math.min((this.velocity / 10) * 45, 45);
                 }
                 if (FB.Input.tapped) {
                     this.play = true;
@@ -716,10 +717,13 @@ setTimeout(function(){
                 FB.entities.push(new FB.Tree(~~(Math.random() * FB.WIDTH + 100), FB.HEIGHT - 160));
             }
             
+
             this.update = function(){
                 for (i = 0; i < FB.entities.length; i += 1) {
                     FB.entities[i].update();                    
                 }
+
+                
                 if (FB.Input.tapped) {
                     FB.changeState('Play');
                     FB.Input.tapped = false;
